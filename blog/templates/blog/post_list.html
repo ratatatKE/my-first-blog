@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Moses' Blog</title>
-</head>
-<body>
-	<h1 >Django Girls Blog</h1>
-	<div>
+<!-- This command is what will get this partial loaded onto the base html file -->
+{%extends "blog/base.html" %}
+<!-- Then put everything in some two special tags -->
+{% block content %}
 
-		<!-- to display something in the html, u use just {{posts}}-->
-		{% for post in posts %}
-		<div>
-			<p>published : {{post.published_date }}	</p>
-			<h1><a href="">{{post.title}}</a></h1>
-			<p>{{post.text|linebreaks }}</p>
-		</div>
-		{% endfor %}
-
+{% for post in posts %}
+<div class="post">
+	<div class="date">
+		{{ post.published_date }}
 	</div>
-</body>
-</html>
+	<!-- Add a link to a special partial for viewing only one item, primary key=post.primary key? -->
+	<h1><a href="{% url "blog.views.post_detail" pk=post.pk %}">{{ post.title }}</a></h1>
+	<p>{{ post.text|linebreaks }}</p>
+</div>
+{% endfor %}
+
+<!-- close our special tag -->
+{% endblock content %}
