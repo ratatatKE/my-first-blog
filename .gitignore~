@@ -1,0 +1,17 @@
+# Created by .ignore support plugin (hsz.mobi)
+*.pyc
+*.swp
+eggs
+bin
+.installed.cfg
+developed-eggs
+db.sqlite3
+lib
+lib64
+dist
+downloads
+mediae/.idea/
+src/
+/mediae/mediae/media/
+/mediae/mediae/static/
+/mediae/mediae/local_settings.py
